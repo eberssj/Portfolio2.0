@@ -18,8 +18,9 @@ const Home: React.FC = () => {
 
       const elements = section.querySelectorAll(selectors.join(','));
       elements.forEach(el => {
-        el.classList.add('section--hidden');
-        el.style.transitionDelay = '0s';
+        const htmlEl = el as HTMLElement;
+        htmlEl.classList.add('section--hidden');
+        htmlEl.style.transitionDelay = '0s';
       });
 
       const observer = new IntersectionObserver(
