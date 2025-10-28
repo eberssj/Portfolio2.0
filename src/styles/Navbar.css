@@ -1,0 +1,68 @@
+/* ====== NAVBAR BASE ====== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+
+    /* Fundo com cor + fade */
+  background: linear-gradient(
+    rgba(254, 250, 224, 0.6),
+    rgba(254, 250, 224, 1)
+  );
+  backdrop-filter: blur(8px);
+}
+
+/* ====== LOGO ====== */
+.navbar-logo {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #1B2D0E;
+}
+
+/* ====== LINKS ====== */
+.navbar-links {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ====== LINK BASE ====== */
+.navbar-link {
+  color: #1B2D0E;
+  background: transparent;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border: 2px solid transparent;
+  transition: all 0.25s ease-in-out;
+  cursor: pointer;
+  font-weight: 500;
+    transition: all 0.28s cubic-bezier(.2,.9,.2,1);
+  position: relative;
+}
+
+/* ====== LINK ATIVO ====== */
+.navbar-link.active {
+  border-color: #1B2D0E;
+  box-shadow: inset 0 -4px 0 rgba(27, 45, 14, 0.06);
+  transform: translateY(-1px);
+
+}
+
+/* ====== INTERAÇÕES ====== */
+.navbar-link:hover {
+    opacity: 0.95;
+  transform: translateY(-1px);
+ 
+}
+
+/* ====== CURSOR PERSONALIZADO ====== */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+

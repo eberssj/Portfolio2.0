@@ -1,0 +1,131 @@
+
+.contato-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem 0;
+  box-sizing: border-box;
+  margin-left: -70px;
+  min-height: 100vh; /* garante que ocupe toda a tela */
+}
+
+
+.contato-title {
+  margin: 0 0 2rem 70px;
+  padding: 0;
+  text-align: left;
+}
+
+
+.contato-content {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0;
+  padding-left: 70px;
+}
+
+
+.email-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+.redes-sociais {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+
+.redes-sociais .redes-title {
+  margin: 0 0 2rem 0;
+  padding: 0;
+  text-align: left;
+  transform: translateY(20px);
+  align-items: center;
+}
+
+
+.redes-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+}
+
+
+.rede-card {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1rem;
+  background-color: #405D2D;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #FFFDEE;
+  width: 400px;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.rede-card:hover {
+  transform: translateY(-2px);
+}
+
+
+.rede-card::before {
+  content: '';
+  width: 30px;
+  height: 24px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.rede-card.instagram::before {
+  background-image: url('/instagram.svg');
+}
+
+.rede-card.github::before {
+  background-image: url('/github.svg');
+}
+
+.rede-card.linkedin::before {
+  background-image: url('/linkedin.svg');
+}
+
+
+.rede-card::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background-image: url('/LINKSEXTERNOS.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 10px;
+}
+
+
+.rede-card::before,
+.rede-card::after {
+  filter: brightness(0) invert(1);
+}
+
+
+.rede-card span {
+  font-weight: 500;
+  color: #FFFDEE;
+}

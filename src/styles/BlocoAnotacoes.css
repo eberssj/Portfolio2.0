@@ -1,0 +1,43 @@
+.bloco-anotacoes-container {
+  background-color: #d9d2a7;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bloco-anotacoes-titulo {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #1B2D0E;
+}
+
+.bloco-itens {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.bloco-item {
+  background-color: #b1ab86;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fffdee;
+  font-size: 1rem;
+  transition: transform 0.2s;
+}
+
+.bloco-item:hover {
+  transform: translateY(-3px);
+}
+
+.bloco-icon {
+  width: 24px;
+  height: 24px;
+}

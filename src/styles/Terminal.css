@@ -1,0 +1,72 @@
+/* Wrapper principal */
+.terminal-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 40rem; /* equivalente a max-w-xl */
+  margin: 0 auto;
+  outline: none;
+}
+
+/* Sombra de fundo (retângulo atrás) */
+.terminal-shadow {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  width: 100%;
+  height: 100%;
+  background-color: #566E45;
+  border-radius: 0.75rem;
+}
+
+/* Corpo do terminal (retângulo principal) */
+.terminal-body {
+  position: relative;
+  background-color: #6E8E59;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  color: #FEFAE0;
+  z-index: 10;
+}
+
+/* Tabs superiores */
+.terminal-tabs {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.terminal-tabs span {
+  cursor: default;
+}
+
+.terminal-tabs .active-tab {
+  border-bottom: 2px solid #FEFAE0;
+}
+
+/* Área de conteúdo do terminal */
+.terminal-content {
+  font-size: 1.125rem;
+  height: 8rem; /* equivalente a h-32 */
+  overflow-y: auto;
+  line-height: 1.5;
+}
+
+/* Linha padrão do terminal */
+.terminal-line {
+  white-space: nowrap;
+}
+
+/* Linha de resposta (TypingText) */
+.response-line {
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+/* Linha de input ativo */
+.terminal-input-line {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}

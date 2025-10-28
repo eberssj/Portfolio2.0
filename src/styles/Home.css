@@ -1,0 +1,185 @@
+
+.page-container {
+  scroll-behavior: smooth;
+  color: #fff;
+}
+
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.section--hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+
+.home-section {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  gap: 3rem;              
+  flex-wrap: wrap; 
+  padding-top: 5rem;        
+}
+
+.title {
+  font-size: 2rem;
+  color: #1B2D0E;
+  margin-bottom: 1rem;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+
+
+.terminal-container {
+  flex: 1;
+  min-width: 300px;
+}
+
+
+.photo-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-placeholder {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px dashed #00ffcc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #00ffcc;
+}
+
+.section--visible .zain {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.home-photo-container {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+
+.photo-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform: translateY(-35px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-border {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  border: 3px solid #405D2D;
+  border-radius: 5px;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+/* Radar apenas nos cantos da borda */
+.photo-radar-corner {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: rgba(64, 93, 45, 0.6);
+  border-radius: 0;
+  pointer-events: none;
+  z-index: 1; /* abaixo da borda */
+  animation: radar-corner 2.5s ease-out infinite;
+}
+
+.radar-top-left {
+  top: -20px;   /* agora começa na borda */
+  left: -20px;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 2px;
+}
+
+/* Radar canto inferior direito da borda */
+.radar-bottom-right {
+  bottom: -20px;  /* agora começa na borda */
+  right: -20px;
+  border-left: none;
+  border-top: none;
+  border-radius: 2px;
+}
+
+/* Animação de expansão */
+@keyframes radar-corner {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Foto por cima do radar */
+.home-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 1%;
+  object-fit: cover;
+  z-index: 3;
+  position: relative;
+}
+
+.home-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 1%;
+  object-fit: cover;
+  justify-content: center;
+}
+
+
+.photo-corners {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.section--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+

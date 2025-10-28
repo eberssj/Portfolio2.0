@@ -1,0 +1,92 @@
+.emailform-container {
+  width: 100%;
+  max-width: 640px;
+  margin: 1.6rem auto;
+  padding: 1.1rem;
+  border: 2px solid #405D2D;
+  background-color: transparent;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.emailform-row {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.emailform-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.emailform-label {
+  color: rgba(64, 93, 45, 0.6);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.emailform-input,
+.emailform-textarea {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #405D2D;
+  color: #405D2D;
+  font-size: 0.95rem;
+  padding: 0.35rem 0;
+  outline: none;
+}
+
+.emailform-input::placeholder,
+.emailform-textarea::placeholder {
+  color: rgba(64,93,45,0.6);
+  opacity: 0.6;
+}
+
+.emailform-input:focus,
+.emailform-textarea:focus {
+  border-bottom: 2px solid #5f8a44;
+}
+
+.emailform-textarea {
+  resize: none;
+  height: 70px;
+}
+
+.emailform-button {
+  margin-top: 0.6rem;
+  background-color: #405D2D;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  align-self: center;
+}
+
+.emailform-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Section */
+.contato-section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.6rem;
+}
+
+.contato-content {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+

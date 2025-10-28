@@ -1,0 +1,452 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Zain:wght@400;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #FEFAE0; /* Fundo fixo do site */
+  --foreground: #1B2D0E; /* Cor da navbar e textos em geral */
+  --font-title: 'Share Tech Mono', monospace; /* Fonte para títulos, navbar e terminal */
+  --font-text: 'Zain', sans-serif; /* Fonte para parágrafos e textos menores */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-text); /* Zain para textos gerais */
+  --font-mono: var(--font-title); /* Share Tech Mono para terminal */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-text); /* Zain como padrão para o body */
+  margin: 0 70px; 
+  min-height: 100vh;
+}
+
+/* Classes para fontes manuais */
+.zain {
+  font-family: var(--font-text);
+}
+
+.tech {
+  font-family: var(--font-title);
+  line-height: 1.5; /* Standardize line height for terminal text */
+}
+
+/* Animação de digitação */
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(var(--typing-steps, 27), end), blink-caret 0.75s step-end infinite;
+  border-right: 0.25em solid var(--foreground); /* Cursor para título */
+}
+
+/* Animação de digitação para terminal */
+.terminal-typing-animation {
+  display: inline;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(var(--typing-steps, 27), end), blink-caret 0.75s step-end infinite;
+  border-right: 0.3em solid #FEFAE0; /* Cursor para terminal */
+  vertical-align: baseline;
+  padding-right: 0.3em;
+}
+
+
+/* Cursor piscando no terminal */
+.blinking-cursor {
+  display: inline-block;
+  width: 0.25em; /* Cursor menos grosso */
+  height: 1em;
+  background-color: #FEFAE0;
+  vertical-align: bottom;
+  animation: blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: var(--typing-width, 27ch); }
+}
+
+@keyframes blink {
+  from, to { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: inherit; }
+}
+
+/* ---- ANIMAÇÃO DE ENTRADA ---- */
+.section--hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  filter: blur(6px);
+  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.7s ease;
+}
+
+.section--visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.7s ease;
+}
+
+
+.section > * {
+  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.7s ease;
+}
+
+html, body {
+  transition: background 0.6s ease, color 0.6s ease;
+}
+
+#home.section--visible {
+  background: var(--background);
+}
+
+#sobre.section--visible {
+  background: linear-gradient(
+    180deg,
+    rgba(254, 250, 224, 1) 0%,
+    rgba(240, 240, 210, 1) 100%
+  );
+}
+
+/* ====== RESPONSIVIDADE GERAL ====== */
+@media (max-width: 768px) {
+
+  /* ====== Ajuste da Navbar ====== */
+  .navbar {
+    padding: 0.8rem 1rem !important;
+  }
+
+  .navbar-links {
+    gap: 0.4rem !important;
+  }
+
+  .navbar-link {
+    font-size: 1.2rem; /* aumenta os botões */
+    padding: 1rem 0.8rem !important;
+  }
+
+  /* ====== Ajuste do BODY ====== */
+  body {
+    margin: 0 20px !important; /* reduz a margem lateral no celular */
+    overflow-x: hidden !important;
+  }
+
+  /* ====== Seção Home ====== */
+  .home-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: first baseline !important;
+    gap: 2rem;
+    padding-top: 50% !important; 
+  }
+
+  /* ====== Título ====== */
+  .home-section .title {
+    font-size: 2rem !important; /* mantém o tamanho ideal */
+    text-align: center !important;
+    align-items: center !important;
+    margin-bottom: 10% !important;
+    width: 100% !important;
+    max-width: 90% !important;
+    overflow-wrap: break-word;
+  }
+
+  @keyframes typing-mask {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+  .home-title {
+    display: inline-block;
+    width: 27ch; 
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 auto !important; /* centraliza horizontalmente */
+    animation: typing-mask 3s steps(27) forwards;
+    transform: translateX(-15px) !important; 
+  }
+
+  .home-title::after {
+    content: '';
+    display: inline-block;
+    width: 27ch;
+    visibility: hidden;
+  }
+
+  /* ====== Terminal ====== */
+  .terminal-wrapper {
+    order: 1;
+    width: 100% !important;
+    max-width: 500px !important;
+    height: 200px !important; /* altura fixa — ajusta conforme quiser */
+    margin: 0 auto !important;
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+    margin-left: 0 !important;
+    flex-shrink: 0; /* impede que ele reduza ou cresça */
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
+  .terminal-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15% !important;
+  }
+
+  .terminal-body {
+    height: 100% !important; /* preenche a altura fixa */
+    overflow: hidden; /* evita "pulos" de layout */
+  }
+  .terminal-tabs {
+    gap: 1rem !important;
+    flex-wrap: wrap;
+    font-size: 1rem !important;
+    justify-content: center !important;
+  }
+
+  .terminal-content {
+    height: auto !important; /* evita corte no conteúdo */
+    max-height: 12rem !important;
+    overflow-y: auto;
+  }
+
+  .terminal-line,
+  .response-line,
+  .terminal-input-line {
+    font-size: 1rem;
+    word-wrap: break-word;
+  }
+
+  /* ====== Imagem (se houver) ====== */
+
+
+  .home-photo-container {
+    order: 2; /* depois */
+    display: flex;
+    justify-content: center !important;
+    width: 100%;
+    margin-left: 5% !important;
+    margin-bottom: 20% !important;
+  }
+
+  .photo-wrapper {
+    width: 220px;
+    height: 220px;
+  }
+
+  .home-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+  }
+
+  /* Ajuste extra pra deixar o título acima do terminal */
+  .home-section .title {
+    order: 0; /* título vem primeiro */
+    font-size: 2.3rem;
+    text-align: center !important;
+    margin: 0 !important;
+    width: 80%;
+    align-items: center !important;
+  }
+
+  .home-title-container {
+    height: 6rem; /* reserva o espaço total do título */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    position: relative !important;
+    z-index: 3 !important;
+  }
+  .content-container {
+    flex-direction: column !important;
+  }
+
+
+  .sobre-content {
+    align-items: center !important;
+    text-align: justify!important;
+    align-items: center !important;
+    margin-left: 20% !important;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sobre-text{
+    max-width: 700px !important;
+    width: 100% !important;
+    margin-bottom: 20% !important;
+    transform: translateX(-10px) !important; 
+  }
+
+  .sobre-photo-container {
+    margin: 0 !important;
+    transform: translateX(-10px) !important; 
+  }
+
+  /* ====== Seção Projetos ====== */
+  .projetos-section {
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    transform: translateX(-20px) !important; 
+  }
+
+  .projetos-title {
+    text-align: left !important; /* alinha o texto à esquerda */
+    max-width: 700px !important; /* limita largura igual ao conteúdo abaixo */
+    margin-bottom: 1.5rem !important;
+    margin-left: 60% !important;
+    width: 400px;
+  }
+
+  /* ====== Carrossel ====== */
+  .projetos-container {
+    width: 100% !important;
+    max-width: 700px !important; /* mesma largura do título e container inferior */
+    margin-left: 70% !important; /* mesma margem da parte inferior */
+    display: flex;
+    justify-content: flex-start !important; /* alinha carrossel à esquerda */
+    align-items: center !important;
+    gap: 1rem;
+  }
+
+  .projetos-secundarios-section {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin-top: 2rem !important;
+  }
+
+    .projetos-secundarios-container {
+    flex-direction: column !important; /* coloca em coluna para mobile */
+    align-items: flex-start !important; /* alinha à esquerda */
+    justify-content: center !important;
+    max-width: 700px !important; /* limita largura total */
+    margin-left: 50% !important; /* move o conteúdo mais pra esquerda */
+    gap: 2rem !important;
+    width: 100% !important;
+  }
+
+  .trajetoria-texto {
+    width: 100% !important; /* mantém responsivo */
+    max-width: 600px !important; /* limita largura pra caber dentro da margem */
+    margin: 0 !important; /* remove margin automática */
+    text-align: justify !important;
+    transform: translateX(-10px) !important; 
+  }
+
+  .titulo-trajetoria{
+   text-align: left !important; /* alinha o texto à esquerda */
+   margin-bottom: 10% !important;
+  }
+
+  .trajetoria-texto h1 {
+    font-size: 1.8rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .carrossel-wrapper.section--visible{
+    gap: 0 !important;
+    transform: translateX(-35px) !important; 
+  }
+
+  .carrossel-container{
+    max-width: 300px;
+    justify-content: center !important;
+    align-items: centern !important;
+  }
+  .trajetoria-texto p {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .bloco-anotacoes-container{
+    transform: translateX(-15px) !important; 
+    margin-top: 10% !important;
+  }
+  .projetos-triangulos {
+    margin-top: 1rem !important;
+    width: 90px !important; 
+  }
+
+  /* CONTATO */
+
+  .contato-section {
+    min-height: auto !important; /* deixa a altura crescer naturalmente */
+    min-height: 90vh !important ;
+  }
+
+  .contato-title{
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: left !important; /* alinha o texto à esquerda */
+    max-width: 700px !important; /* limita largura igual ao conteúdo abaixo */
+    width: 400px;
+    margin-bottom: 1.5rem !important;
+    margin-left: 40% !important;
+  }
+
+  .contato-content {
+    flex-direction: column !important; /* empilha form e redes sociais */
+    align-items: center !important;
+    gap: 2rem !important; /* espaçamento entre form e redes */
+  }
+
+  /* EmailForm */
+  .emailform-container {
+    width: 350px !important;
+    max-width: 500px !important;
+    padding: 1rem !important;
+    margin-left: 25% !important;
+
+  }
+
+  .emailform-row {
+    flex-direction: column !important; /* empilha os inputs lado a lado */
+    gap: 1rem !important;
+  }
+
+  .emailform-group {
+    width: 100% !important;
+  }
+
+  .emailform-button {
+    width: 100% !important;
+    text-align: center !important;
+  }
+  
+  .redes-sociais{
+    margin-left: 25% !important;
+  }
+  /* Redes sociais */
+  .redes-cards {
+    max-width: 300px !important;
+    flex-direction: column !important; /* cada card embaixo do outro */
+    gap: 1rem !important;
+    width: 200px !important;
+    margin-top: 10% !important;
+  }
+  .rede-card{
+    width: 300px !important;
+
+  }
+}
