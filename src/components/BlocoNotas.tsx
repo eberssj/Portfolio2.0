@@ -33,7 +33,7 @@ const BlocoNotas: React.FC = () => {
           </a>
 
           <a
-            href="#"
+            href="https://boxd.it/41wNX"
             className="bloco-item"
           >
             <img
@@ -45,7 +45,7 @@ const BlocoNotas: React.FC = () => {
           </a>
 
           <a
-            href="#"
+            href="https://pin.it/6SHK6dgbv"
             className="bloco-item"
           >
             <img
